@@ -1,5 +1,3 @@
-import cv2
-import time
 import pyrebase
 
 config = {
@@ -16,36 +14,9 @@ config = {
 
 firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
+db = firebase.database()
+loc={"long":77.3649,"lat":28.5229}
+db.child("Home_Location").set(loc)
 # storage.child("images/test.png").put("Assets/test.png")
 
 # Upload image function without using a named function
-
-def update_last_updated(filename):
-    db = firebase.database()
-    db.child("last_updated").set(filename)
-
-def upload_image(image):
-    _, img_encoded = cv2.imencode('.jpg', image)
-    image_bytes = img_encoded.tobytes()
-    img_name= str(time.time()) 
-    storage.child("images/" + img_name+ ".jpg").put(image_bytes)
-    update_last_updated(img_name)
-
-# Main execution
-cap = cv2.VideoCapture(1)
-
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        break
-
-    cv2.imshow('Frame', frame)
-
-    upload_image(frame)
-    time.sleep(1)
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
