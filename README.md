@@ -1,6 +1,6 @@
 # ENVISION EASE
 
-### ILLUMINATIONG MEMORIES, ONE FRAME AT A TIME
+### *ILLUMINATIONG MEMORIES, ONE FRAME AT A TIME*
 
 ## **DESCRIPTION**
 EnvisionEase is a software program that uses the latest advancements in smart glasses technology to improve the quality of life for dementia patients. EnvisionEase is an idea that seamlessly combines compassion and creativity to transform traditional eyewear into a tailored cognitive assistance system.
